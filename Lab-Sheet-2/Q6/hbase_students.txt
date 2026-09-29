@@ -1,0 +1,34 @@
+create 'Students', 'personal', 'academic'
+
+put 'Students', '1', 'personal:Name', 'Aman'
+put 'Students', '1', 'personal:Age', '20'
+put 'Students', '1', 'academic:Course', 'BCA'
+put 'Students', '1', 'academic:Marks', '78'
+
+put 'Students', '2', 'personal:Name', 'Riya'
+put 'Students', '2', 'personal:Age', '21'
+put 'Students', '2', 'academic:Course', 'BBA'
+put 'Students', '2', 'academic:Marks', '85'
+
+put 'Students', '3', 'personal:Name', 'Rahul'
+put 'Students', '3', 'personal:Age', '20'
+put 'Students', '3', 'academic:Course', 'BCA'
+put 'Students', '3', 'academic:Marks', '72'
+
+put 'Students', '4', 'personal:Name', 'Neha'
+put 'Students', '4', 'personal:Age', '22'
+put 'Students', '4', 'academic:Course', 'MCA'
+put 'Students', '4', 'academic:Marks', '91'
+
+put 'Students', '5', 'personal:Name', 'Vikas'
+put 'Students', '5', 'personal:Age', '21'
+put 'Students', '5', 'academic:Course', 'BCA'
+put 'Students', '5', 'academic:Marks', '88'
+
+get 'Students', '1'
+
+put 'Students', '1', 'academic:Marks', '90'
+
+scan 'Students'
+
+deleteall 'Students', '5'

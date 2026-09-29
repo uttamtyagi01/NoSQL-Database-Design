@@ -1,0 +1,13 @@
+SET student:1 "Aman"
+SET student:2 "Riya"
+SET student:3 "Rahul"
+SET student:4 "Neha"
+SET student:5 "Vikas"
+
+GET student:1
+
+SET student:1 "Aman Kumar"
+
+DEL student:5
+
+KEYS student:*

@@ -1,0 +1,35 @@
+NoSQL Database Comparison using the Student Dataset
+
+1. Data Model
+MongoDB:
+Document-oriented database. Student records are stored as JSON-like documents.
+
+Cassandra:
+Wide-column database. Data is stored in tables with rows and columns.
+
+Neo4j:
+Graph database. Data is represented using nodes and relationships.
+
+2. Storage
+MongoDB stores flexible documents.
+Cassandra stores distributed rows in column families.
+Neo4j stores nodes, relationships and properties.
+
+3. Query
+MongoDB uses MongoDB Query Language (MQL).
+Cassandra uses CQL (Cassandra Query Language).
+Neo4j uses Cypher.
+
+4. Scalability
+MongoDB supports horizontal scaling through sharding.
+Cassandra is designed for distributed and highly scalable workloads.
+Neo4j can scale for graph workloads, with architecture depending on deployment and edition.
+
+5. Applications
+MongoDB: flexible application data, catalogs and content systems.
+Cassandra: large-scale distributed and write-heavy applications.
+Neo4j: relationship-heavy data such as social networks, recommendations and knowledge graphs.
+
+Conclusion:
+The suitable database depends on the application requirements, data structure,
+query patterns, consistency needs and scalability requirements.
