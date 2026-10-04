@@ -1,0 +1,10 @@
+# Q8: Expiring user session data
+# TTL is configured on the session column family for 60 seconds.
+create 'UserSession', {NAME => 'session', TTL => 60}
+put 'UserSession', 'S001', 'session:user_id', 'U101'
+put 'UserSession', 'S001', 'session:login_time', '2026-10-04T10:00:00'
+put 'UserSession', 'S002', 'session:user_id', 'U102'
+put 'UserSession', 'S002', 'session:login_time', '2026-10-04T10:01:00'
+get 'UserSession', 'S001'
+# After the TTL period, the session cells expire automatically.
+# Verify with: get 'UserSession', 'S001'

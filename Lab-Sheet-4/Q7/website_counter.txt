@@ -1,0 +1,11 @@
+# Q7: Website page-view counters
+create 'WebsiteCounter', 'counter'
+increment 'WebsiteCounter', 'home', 'counter:views', 1
+increment 'WebsiteCounter', 'home', 'counter:views', 1
+increment 'WebsiteCounter', 'home', 'counter:views', 1
+increment 'WebsiteCounter', 'products', 'counter:views', 1
+increment 'WebsiteCounter', 'products', 'counter:views', 1
+increment 'WebsiteCounter', 'about', 'counter:views', 1
+get 'WebsiteCounter', 'home'
+get 'WebsiteCounter', 'products'
+get 'WebsiteCounter', 'about'

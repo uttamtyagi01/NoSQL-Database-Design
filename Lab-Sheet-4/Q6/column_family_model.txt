@@ -1,0 +1,11 @@
+# Q6: Column-family data model demonstration
+create 'StudentCF', 'personal', 'academic', 'contact'
+put 'StudentCF', 'S001', 'personal:name', 'Aman'
+put 'StudentCF', 'S001', 'personal:age', '20'
+put 'StudentCF', 'S001', 'academic:course', 'BCA'
+put 'StudentCF', 'S001', 'academic:marks', '85'
+put 'StudentCF', 'S001', 'contact:city', 'Delhi'
+put 'StudentCF', 'S001', 'contact:phone', '9999999999'
+scan 'StudentCF'
+# personal, academic and contact are separate column families.
+# Qualifiers such as name, age, course, marks, city and phone belong to their families.

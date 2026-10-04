@@ -1,0 +1,10 @@
+# Q10: Multiple regions and RegionServers
+# Pre-split the table into regions using row-key boundaries.
+create 'LargeData', 'data', {SPLITS => ['100', '200', '300']}
+put 'LargeData', '001', 'data:value', 'A'
+put 'LargeData', '120', 'data:value', 'B'
+put 'LargeData', '220', 'data:value', 'C'
+put 'LargeData', '320', 'data:value', 'D'
+scan 'LargeData'
+# Splits create multiple regions. RegionServers host and serve these regions.
+# Distribution across RegionServers provides horizontal scalability and availability.

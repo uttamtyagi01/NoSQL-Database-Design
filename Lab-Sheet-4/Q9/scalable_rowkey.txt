@@ -1,0 +1,11 @@
+# Q9: Large-scale application and horizontal scaling
+create 'OrdersLarge', 'order'
+put 'OrdersLarge', '2026-10-04-001', 'order:user_id', 'U101'
+put 'OrdersLarge', '2026-10-04-001', 'order:amount', '1200'
+put 'OrdersLarge', '2026-10-04-002', 'order:user_id', 'U102'
+put 'OrdersLarge', '2026-10-04-002', 'order:amount', '2500'
+put 'OrdersLarge', '2026-10-04-003', 'order:user_id', 'U103'
+put 'OrdersLarge', '2026-10-04-003', 'order:amount', '900'
+# A distributed/salted key such as 03_20261004_001 can reduce hotspotting.
+# HBase regions split row-key ranges and RegionServers serve those regions.
+scan 'OrdersLarge'
