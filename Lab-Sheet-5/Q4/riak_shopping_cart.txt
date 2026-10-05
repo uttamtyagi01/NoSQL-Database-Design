@@ -1,0 +1,6 @@
+# Q4 Riak KV - shopping cart
+curl -X PUT -H 'Content-Type: application/json' -d '{"user_id":"U01","items":[{"product_id":"P101","quantity":2,"price":500},{"product_id":"P102","quantity":1,"price":300}],"total":1300}' http://127.0.0.1:8098/buckets/shopping_carts/keys/U01
+curl -X PUT -H 'Content-Type: application/json' -d '{"user_id":"U01","items":[{"product_id":"P101","quantity":3,"price":500},{"product_id":"P102","quantity":1,"price":300}],"total":1800}' http://127.0.0.1:8098/buckets/shopping_carts/keys/U01
+curl http://127.0.0.1:8098/buckets/shopping_carts/keys/U01
+# Removing a product is represented by writing the updated cart document.
+curl -X PUT -H 'Content-Type: application/json' -d '{"user_id":"U01","items":[{"product_id":"P101","quantity":3,"price":500}],"total":1500}' http://127.0.0.1:8098/buckets/shopping_carts/keys/U01

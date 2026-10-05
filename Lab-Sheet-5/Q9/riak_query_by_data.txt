@@ -1,0 +1,8 @@
+# Q9 Riak KV - query-by-data with application-level logic
+curl -X PUT -H 'Content-Type: application/json' -d '{"name":"Aman","age":20,"city":"Dehradun","preferences":["SQL","MongoDB"]}' http://127.0.0.1:8098/buckets/users/keys/U1
+curl -X PUT -H 'Content-Type: application/json' -d '{"name":"Riya","age":21,"city":"Delhi","preferences":["Python","Data"]}' http://127.0.0.1:8098/buckets/users/keys/U2
+curl -X PUT -H 'Content-Type: application/json' -d '{"name":"Neha","age":22,"city":"Dehradun","preferences":["MongoDB","Python"]}' http://127.0.0.1:8098/buckets/users/keys/U3
+curl http://127.0.0.1:8098/buckets/users/keys/U1
+curl http://127.0.0.1:8098/buckets/users/keys/U2
+curl http://127.0.0.1:8098/buckets/users/keys/U3
+# Application code can filter the retrieved JSON by city, age or preferences.

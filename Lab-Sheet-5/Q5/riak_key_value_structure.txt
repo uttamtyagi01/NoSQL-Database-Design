@@ -1,0 +1,8 @@
+# Q5 Riak KV - bucket, key and value
+curl -X PUT -H 'Content-Type: text/plain' --data 'Aman' http://127.0.0.1:8098/buckets/demo/keys/name1
+curl -X PUT -H 'Content-Type: application/json' --data '{"name":"Riya","age":21}' http://127.0.0.1:8098/buckets/demo/keys/user1
+curl -X PUT -H 'Content-Type: application/json' --data '["SQL","MongoDB","Python"]' http://127.0.0.1:8098/buckets/demo/keys/skills1
+curl http://127.0.0.1:8098/buckets/demo/keys/name1
+curl http://127.0.0.1:8098/buckets/demo/keys/user1
+curl http://127.0.0.1:8098/buckets/demo/keys/skills1
+# Bucket groups keys; key identifies a stored value; value contains the actual data.

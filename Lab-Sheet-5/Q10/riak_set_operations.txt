@@ -1,0 +1,7 @@
+# Q10 Riak KV - set operations
+curl -X PUT -H 'Content-Type: application/json' -d '["SQL","Python","MongoDB"]' http://127.0.0.1:8098/buckets/interests/keys/user1
+curl -X PUT -H 'Content-Type: application/json' -d '["Python","MongoDB","PowerBI"]' http://127.0.0.1:8098/buckets/interests/keys/user2
+curl http://127.0.0.1:8098/buckets/interests/keys/user1
+curl http://127.0.0.1:8098/buckets/interests/keys/user2
+# Add/remove/check-membership/intersection can be performed by application logic.
+# Common elements of these two sets are Python and MongoDB.

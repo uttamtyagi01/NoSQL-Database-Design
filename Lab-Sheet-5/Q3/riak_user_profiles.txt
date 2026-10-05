@@ -1,0 +1,3 @@
+# Q3 Riak KV - user profiles and preferences
+curl -X PUT -H 'Content-Type: application/json' -d '{"name":"Riya","email":"riya@example.com","city":"Dehradun","language":"English","theme":"dark","notifications":{"email":true,"sms":false}}' http://127.0.0.1:8098/buckets/user_profiles/keys/U01
+curl http://127.0.0.1:8098/buckets/user_profiles/keys/U01

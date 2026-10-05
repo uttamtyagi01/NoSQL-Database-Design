@@ -1,0 +1,6 @@
+# Q6 Riak KV - consistency with read/write quorum
+# Example with N=3 replicas: W=2 requires two successful writes.
+curl -X PUT -H 'Content-Type: application/json' -d '{"id":1,"status":"active"}' 'http://127.0.0.1:8098/buckets/consistency/keys/1?w=2'
+# R=2 requires two replicas for the read.
+curl 'http://127.0.0.1:8098/buckets/consistency/keys/1?r=2'
+# Quorum settings balance consistency, availability and latency in distributed storage.

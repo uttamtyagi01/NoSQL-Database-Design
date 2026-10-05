@@ -1,0 +1,6 @@
+# Q1 Riak KV - students bucket
+# Store, retrieve, update and delete a student record.
+curl -X PUT -H 'Content-Type: application/json' -d '{"id":1,"name":"Aman","course":"BCA","age":20}' http://127.0.0.1:8098/buckets/students/keys/1
+curl http://127.0.0.1:8098/buckets/students/keys/1
+curl -X PUT -H 'Content-Type: application/json' -d '{"id":1,"name":"Aman","course":"BCA","age":21}' http://127.0.0.1:8098/buckets/students/keys/1
+curl -X DELETE http://127.0.0.1:8098/buckets/students/keys/1

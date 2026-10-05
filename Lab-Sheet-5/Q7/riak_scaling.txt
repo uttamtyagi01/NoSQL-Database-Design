@@ -1,0 +1,8 @@
+# Q7 Riak KV - scaling
+for i in $(seq 1 100); do
+  curl -s -X PUT -H 'Content-Type: application/json' -d "{"id":$i,"name":"User$i"}" "http://127.0.0.1:8098/buckets/users/keys/$i" >/dev/null
+done
+for i in $(seq 1 100); do
+  curl -s -X PUT -H 'Content-Type: application/json' -d "{"id":$i,"category":"Product","price":$((i*10))}" "http://127.0.0.1:8098/buckets/products/keys/$i" >/dev/null
+done
+# Riak distributes data across partitions/nodes; adding nodes supports horizontal scaling.

@@ -1,0 +1,5 @@
+# Q8 Riak KV - transaction-like shopping sequence
+curl -X PUT -H 'Content-Type: application/json' -d '{"items":[{"product_id":"P1","quantity":1,"price":500}],"total":500}' http://127.0.0.1:8098/buckets/carts/keys/U1
+curl -X PUT -H 'Content-Type: application/json' -d '{"items":[{"product_id":"P1","quantity":2,"price":500}],"total":1000}' http://127.0.0.1:8098/buckets/carts/keys/U1
+curl -X PUT -H 'Content-Type: application/json' -d '{"items":[{"product_id":"P1","quantity":2,"price":500},{"product_id":"P2","quantity":1,"price":200}],"total":1200}' http://127.0.0.1:8098/buckets/carts/keys/U1
+# These are separate key-value operations, not one multi-key ACID transaction.
