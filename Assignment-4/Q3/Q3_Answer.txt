@@ -1,0 +1,50 @@
+Q3. Explain the architecture of Apache HBase.
+
+Apache HBase is a distributed column-family database designed for very large tables and commonly runs on HDFS.
+
+HMaster: performs administrative operations, region assignment, load management and schema-related tasks.
+
+RegionServer: serves read/write requests for the regions assigned to it.
+
+ZooKeeper: provides cluster coordination and tracks important cluster state.
+
+HDFS: provides distributed persistent storage for HBase data files.
+
+Regions: divide a large table horizontally according to row-key ranges and are distributed among RegionServers.
+
+MemStore: an in-memory structure where writes are initially stored before being flushed to HFiles on HDFS.
+
+Write flow:
+Client -> RegionServer -> Region -> MemStore -> HFiles/HDFS.
+
+Read flow:
+Client -> RegionServer -> Region -> MemStore/HFiles -> Result.
+
+Architecture diagram:
+
+                 +----------------+
+                 |     Client     |
+                 +-------+--------+
+                         |
+                 +-------v--------+
+                 |    ZooKeeper   |
+                 +-------+--------+
+                         |
+                 +-------v--------+
+                 |     HMaster    |
+                 +-------+--------+
+                         |
+          +--------------+--------------+
+          |                             |
+   +------v-------+              +------v-------+
+   | RegionServer |              | RegionServer |
+   |   Region A   |              |   Region B   |
+   |   MemStore   |              |   MemStore   |
+   +------+-------+              +------+-------+
+          |                             |
+          +--------------+--------------+
+                         |
+                   +-----v-----+
+                   |   HDFS    |
+                   |  HFiles   |
+                   +-----------+

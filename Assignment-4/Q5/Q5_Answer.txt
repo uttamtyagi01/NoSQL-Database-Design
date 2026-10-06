@@ -1,0 +1,24 @@
+Q5. Design an HBase data model for billions of student activity records.
+
+Table: StudentActivity
+
+Row key:
+<student_id>#<reverse_timestamp>#<activity_id>
+
+Example:
+S1001#9999999999#A001
+
+Column families:
+1. student: name, course, year
+2. activity: type, page, action, device
+3. metadata: ip, location, application
+
+Example:
+Row Key: S1001#9999999999#A001
+student:name = Aman
+student:course = BCA
+activity:type = login
+activity:device = mobile
+metadata:location = Delhi
+
+The design supports billions of records because HBase can distribute regions across RegionServers. Student ID identifies the owner, activity ID distinguishes events, and timestamp supports time-based access. The key should be adjusted to actual query patterns to avoid hotspots. Column families group related attributes and sparse columns support varying student activity attributes.

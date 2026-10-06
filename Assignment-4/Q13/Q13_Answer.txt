@@ -1,0 +1,22 @@
+Q13. Explain TTL in Cassandra/HBase.
+
+TTL means Time To Live. It causes data to expire automatically after a configured period.
+
+For a temporary session system, a 24-hour TTL can be used.
+
+Cassandra example:
+INSERT INTO sessions (session_id, user_id, status)
+VALUES ('S101', 'U01', 'active')
+USING TTL 86400;
+
+86400 seconds equals 24 hours.
+
+HBase can also use TTL at the column-family level so cells expire after the configured period.
+
+Benefits:
+- Automatic expiration of sessions and temporary data.
+- Reduced need for manual deletion.
+- Useful for caches, tokens and short-lived activity.
+
+Impact:
+Expired data should not be assumed to remain available. Physical storage cleanup is associated with database cleanup/compaction behavior rather than necessarily happening at the exact expiration second. Applications must handle expired records correctly.

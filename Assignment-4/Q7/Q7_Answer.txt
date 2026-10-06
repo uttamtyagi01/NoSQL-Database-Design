@@ -1,0 +1,11 @@
+Q7. Explain how Cassandra achieves high availability.
+
+Cassandra uses a peer-to-peer architecture, so there is no single traditional master that must process all requests. Data is partitioned across nodes and replicated according to a replication factor.
+
+For example, with replication factor 3, three replicas of a partition can be stored on different nodes. If one node fails, another replica may serve the request.
+
+Consistency levels such as ONE, QUORUM and ALL determine how many replicas must acknowledge reads or writes.
+
+Other availability features include peer-to-peer communication, automatic partition distribution, replication, multi-data-center support, failure detection and repair.
+
+Higher consistency can increase latency or reduce availability during failures. Lower consistency can improve availability and latency but may temporarily expose stale data. Thus Cassandra achieves high availability through decentralized architecture, replication and tunable consistency.

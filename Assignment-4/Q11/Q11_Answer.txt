@@ -1,0 +1,20 @@
+Q11. Explain how a column-family database can be used for CMS and blogging platforms.
+
+A CMS may contain articles, authors, tags, comments, metadata and user activity.
+
+Possible HBase-style design:
+
+Row key: article_id
+
+Column families:
+content: title, body, summary
+author: author_id, name
+metadata: created_at, updated_at, category, status
+tags: tag1, tag2
+activity: views, likes
+
+Comments can be stored separately using a key such as article_id#comment_id.
+
+Benefits include flexible attributes, sparse storage, horizontal scalability and high write throughput.
+
+Challenges include evolving fields, varying article structures, very large comment collections, query-driven modeling and limited support for joins. Related data may need denormalization. Therefore flexibility must be combined with disciplined data modeling.

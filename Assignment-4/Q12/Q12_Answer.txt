@@ -1,0 +1,20 @@
+Q12. Explain counters in Cassandra.
+
+Counters are useful for page views, likes, downloads, API requests and user activity.
+
+Example:
+CREATE TABLE page_views (
+    page_id text PRIMARY KEY,
+    views counter
+);
+
+Increment:
+UPDATE page_views
+SET views = views + 1
+WHERE page_id = 'P101';
+
+Concurrent updates can occur from many clients. Distributed replicas must coordinate updates, and network failures or retries can complicate operations. A heavily updated single counter can also become a hot partition.
+
+To reduce contention, applications can use sharded counters, for example multiple counter partitions and aggregate them during reads.
+
+Counters are useful but should be designed around concurrency, partition size, workload and availability requirements.

@@ -1,0 +1,27 @@
+Q10. Design a real-time event logging system.
+
+A system producing millions of events per minute needs high write throughput, horizontal scalability, large storage, fault tolerance and fast retrieval.
+
+Conceptual table: Events
+
+Partition/row key:
+<service_id>#<time_bucket>#<shard>
+
+Columns:
+event:event_id
+event:type
+event:timestamp
+event:user_id
+event:message
+metadata:device
+metadata:location
+metadata:source
+
+Example key:
+API1#2026-10-06-10#03
+
+Time buckets limit partition/region size and shards distribute heavy writes.
+
+Consistency should match the business requirement. Logging may tolerate tunable/eventual-style consistency when durability and availability are more important than immediate global consistency.
+
+Use replication for availability, multiple shards to prevent hotspots, time buckets for bounded partitions and horizontal node scaling as traffic grows.

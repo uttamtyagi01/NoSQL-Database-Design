@@ -1,0 +1,11 @@
+Q6. Discuss consistency and transactions in HBase and Cassandra.
+
+Traditional RDBMSs emphasize ACID transactions, while distributed NoSQL systems make trade-offs because data is spread across multiple machines and networks can fail.
+
+HBase provides strong consistency for its normal read/write model and supports atomic operations at the row level, but it is not a general relational-style distributed transaction system across arbitrary rows.
+
+Cassandra provides tunable consistency using levels such as ONE, QUORUM and ALL. It also supports lightweight transactions for specific conditional operations.
+
+Distributed databases trade off consistency, latency and availability because replicas can be temporarily different and network failures can occur.
+
+Application design must select appropriate consistency for each operation. Critical data may need stronger consistency, while analytics or activity feeds may tolerate weaker/tunable consistency. Data should also be modeled to minimize the need for multi-row distributed transactions.

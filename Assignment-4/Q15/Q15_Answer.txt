@@ -1,0 +1,27 @@
+Q15. Critically analyze: “Column-oriented NoSQL databases provide scalability and flexibility, but they require careful data modeling.”
+
+The statement is correct.
+
+1. Partition/row keys:
+Poor keys can concentrate traffic on one partition or HBase region and create hotspots. Good keys distribute workload.
+
+2. Column families:
+In HBase, poorly designed or excessive column families can increase storage and operational overhead. Families should group data with related access patterns.
+
+3. Cassandra partition keys:
+Very large partitions can create storage, memory and query problems. Keys should distribute data while keeping partitions manageable.
+
+4. Replication:
+Too little replication reduces fault tolerance. Too much replication increases storage, network and write costs.
+
+5. Query patterns:
+Queries that do not match the model may require large scans. Cassandra often uses separate query-oriented tables, while HBase relies heavily on efficient row-key access and scans.
+
+6. Denormalization:
+Duplicating data can improve query performance, but it increases update complexity.
+
+7. Time-based workloads:
+Time buckets and sharding can prevent oversized partitions and write hotspots.
+
+Conclusion:
+Scalability and flexibility do not mean that any schema will perform well. HBase and Cassandra require designers to consider queries, data growth, partition size, replication, workload distribution and failure scenarios. Good modeling produces scalable systems, while poor modeling can cause hotspots, large scans, uneven load and poor performance.

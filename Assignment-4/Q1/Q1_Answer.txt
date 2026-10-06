@@ -1,0 +1,10 @@
+ASSIGNMENT – UNIT 4: NoSQL DATABASE
+Q1. Explain the concept of Column-Oriented NoSQL Databases.
+
+Column-oriented NoSQL databases store data using rows identified by keys and groups of related columns called column families. Unlike a traditional relational database, where every row follows a fixed table schema, column-family databases allow different rows to contain different columns.
+
+Advantages include horizontal scalability, high write performance, flexible schema, fault tolerance through replication, large-scale storage, and distributed processing.
+
+Limitations include query-driven data modeling, limited support for complex joins, less convenient ad-hoc relational queries, possible hotspots caused by poor keys, and tunable/weaker consistency in some systems.
+
+They are suitable for event logging, IoT data, large-scale activity records, content systems, and distributed applications.

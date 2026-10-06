@@ -1,0 +1,11 @@
+Q14. Compare HBase and Cassandra for a real-time analytics platform.
+
+Requirements: high write volume, large datasets, geographically distributed users and occasional node failures.
+
+HBase offers strong consistency for normal operations, very large-scale storage, Hadoop ecosystem integration, region-based scaling and HDFS fault tolerance.
+
+Cassandra offers peer-to-peer architecture, high availability, replication, tunable consistency, geographic distribution and strong write scalability.
+
+For this scenario, Cassandra is generally the stronger choice because availability, geographic distribution, high write volume and tolerance of node failures are central requirements.
+
+However, the choice assumes that analytics queries can be modeled effectively using Cassandra's partition and clustering design. If deep Hadoop integration or HBase-specific storage/consistency characteristics were the priority, HBase could be preferable.

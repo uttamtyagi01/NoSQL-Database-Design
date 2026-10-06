@@ -1,0 +1,15 @@
+Q2. Compare Apache HBase and Apache Cassandra.
+
+HBase uses a Bigtable-style column-family model with row keys, column families, qualifiers, cells and versions. Cassandra uses a partitioned wide-column model with tables, partition keys and clustering columns.
+
+HBase commonly uses HMaster, RegionServers, ZooKeeper and HDFS. Cassandra uses a peer-to-peer architecture without a traditional master.
+
+HBase generally provides strong consistency for its normal read/write model. Cassandra provides tunable consistency through levels such as ONE, QUORUM and ALL.
+
+Both provide horizontal scalability and fault tolerance. HBase distributes regions among RegionServers and uses HDFS replication. Cassandra distributes partitions across nodes and uses configurable replication.
+
+HBase operations include Get, Put, Scan and Delete. Cassandra uses CQL for INSERT, SELECT, UPDATE and DELETE.
+
+HBase is suitable for very large datasets integrated with the Hadoop ecosystem. Cassandra is particularly suitable for highly distributed, always-on and geographically distributed applications.
+
+For a highly distributed application, Cassandra would generally be preferred because of its peer-to-peer architecture, replication, tunable consistency and high availability.

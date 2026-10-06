@@ -1,0 +1,17 @@
+Q8. Explain major query features of HBase and Cassandra.
+
+HBase operations include:
+- Put: insert/update data.
+- Get: retrieve a row or cells.
+- Scan: read a range of rows.
+- Delete: remove data.
+- Increment: update numeric values in supported cases.
+
+Cassandra uses CQL (Cassandra Query Language) with INSERT, SELECT, UPDATE and DELETE.
+
+Example:
+SELECT * FROM students WHERE student_id = 'S101';
+
+CQL resembles SQL but is designed for Cassandra's distributed model and does not provide unrestricted relational querying.
+
+Query design and data modeling are especially important because column-family databases are query-driven. Poor row/partition keys can create hotspots, while queries that require huge scans can be expensive. Data may be denormalized to make important queries fast.

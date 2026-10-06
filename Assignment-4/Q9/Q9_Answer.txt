@@ -1,0 +1,20 @@
+Q9. Explain scaling in HBase and Cassandra.
+
+Both systems primarily use horizontal scaling.
+
+HBase:
+- Tables are divided into regions.
+- Regions are distributed among RegionServers.
+- HDFS distributes persistent data across storage nodes.
+- Region splitting distributes growing tables.
+- HDFS replication provides fault tolerance.
+- RegionServer load is distributed across the cluster.
+
+Cassandra:
+- Data is partitioned using partition keys and distributed across nodes.
+- Replication stores copies on multiple nodes.
+- Peer-to-peer architecture distributes responsibilities.
+- Adding nodes distributes data and requests across more machines.
+- Multi-data-center replication supports geographic distribution.
+
+HBase uses regions for partitioning, while Cassandra uses partition/token-based distribution. Both require good key design because poor distribution can create hotspots.

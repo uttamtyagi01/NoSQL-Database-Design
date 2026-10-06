@@ -1,0 +1,18 @@
+Q4. Explain the Column-Family Data Store model.
+
+A column-family data store organizes data using row keys and column families.
+
+Row Key: unique identifier of a row, e.g. S101.
+Column Family: logical group of related columns, e.g. Personal and Academic.
+Column Qualifier: individual column name inside a family, e.g. Name or City.
+Cell: actual stored value at a row/family/qualifier location.
+Timestamp: records the time associated with a cell version.
+Versioning: allows multiple versions of a cell to be retained according to configuration.
+
+Example:
+Row key S101
+Personal:Name = Aman
+Personal:City = Delhi
+Academic:Course = BCA
+
+Unlike an RDBMS with a fixed set of columns for every row, a column-family database can have sparse and different qualifiers for different rows. It is designed for distributed access and horizontal scaling rather than relational joins and normalization.
