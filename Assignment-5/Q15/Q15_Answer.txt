@@ -1,0 +1,44 @@
+Q15. Compare Riak Key-Value and Neo4j Graph databases.
+
+Data structure:
+Riak stores key-value objects, while Neo4j stores nodes, relationships and properties.
+
+Consistency:
+Riak is designed for distributed availability and configurable consistency behavior. Neo4j provides transactional consistency for graph updates within its transaction model.
+
+Transactions:
+Riak is not primarily designed around traditional multi-object relational transactions. Neo4j supports transactions for graph operations.
+
+Availability:
+Riak emphasizes distributed availability and replication. Neo4j availability depends on its cluster/deployment architecture and replication mechanisms.
+
+Query features:
+Riak is strongest for direct key lookup and can use indexes/search mechanisms for more complex retrieval. Neo4j uses Cypher for pattern matching and graph traversal.
+
+Relationships:
+Riak represents relationships indirectly through values, references or application logic. Neo4j represents relationships directly as edges.
+
+Scalability:
+Riak is designed for horizontal distribution of key-value data. Neo4j can scale through graph cluster/deployment mechanisms, but highly connected graph workloads require careful graph modeling.
+
+Suitable use cases:
+Riak:
+- Shopping carts.
+- User sessions.
+- User profiles.
+- Preferences.
+- Fast key-based lookups.
+
+Neo4j:
+- Social networks.
+- Recommendation systems.
+- Fraud detection.
+- Knowledge graphs.
+- Relationship-heavy applications.
+
+Recommendations:
+1. Shopping-cart system: Riak is more appropriate because a cart can be stored as one value keyed by user/session ID and retrieved quickly.
+2. User-profile system: Riak is appropriate because profiles and preferences are naturally key-based and frequently retrieved using a user ID.
+3. Social-network recommendation system: Neo4j is more appropriate because friendships, follows, likes, groups and recommendation paths are highly connected relationships that benefit from graph traversal.
+
+Therefore, the correct database depends on the access pattern: Riak is strong for simple, fast and distributed key-value access, while Neo4j is strong when relationships and graph traversal are central to the application.

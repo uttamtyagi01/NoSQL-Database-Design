@@ -1,0 +1,33 @@
+Q6. Store millions of web-application sessions using Riak.
+
+A session can be represented as one Key-Value object.
+
+Bucket:
+user_sessions
+
+Key:
+session_id = S101
+
+Value:
+{
+  "user_id": "U01",
+  "login_time": "2026-10-06T09:00:00",
+  "device": "mobile",
+  "session_expiry": "2026-10-07T09:00:00",
+  "status": "active"
+}
+
+Basic operations:
+PUT: create or update a session.
+GET: retrieve a session using its session ID.
+DELETE: remove a session when it ends.
+
+Advantages:
+1. Fast lookup because session ID is a direct key.
+2. Horizontal scalability for millions of sessions.
+3. Replication improves fault tolerance.
+4. Flexible values allow different session metadata.
+5. Distributed nodes can handle large request volumes.
+6. Expiry/lifecycle mechanisms can be used for temporary session data where supported by the deployment.
+
+A Key-Value database is especially suitable because web applications usually access a session using a known session identifier rather than performing complex relational queries.

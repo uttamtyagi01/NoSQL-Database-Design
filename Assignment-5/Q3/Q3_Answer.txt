@@ -1,0 +1,26 @@
+Q3. Analyze the consistency model of Riak.
+
+Riak is designed for distributed environments where consistency, availability and partition tolerance must be balanced.
+
+In a distributed system, copies of data may exist on multiple nodes. Riak uses replication and configurable read/write behavior to provide a practical balance between consistency and availability.
+
+Important ideas:
+- N: number of replicas for an object.
+- W: number of replicas that must acknowledge a write.
+- R: number of replicas consulted for a read.
+
+For example, with N=3:
+- W=2 means two replicas should acknowledge a write.
+- R=2 means two replicas should participate in a read.
+
+Higher read/write requirements can provide stronger confidence in current data but may increase latency and reduce availability when nodes are unavailable.
+
+Example:
+Suppose three nodes contain replicas of a user's profile. If one node fails, a lower quorum requirement may still allow the application to read or write using the remaining nodes. A stronger quorum may reject the operation until enough replicas are available.
+
+This illustrates the distributed trade-off:
+Consistency: replicas should agree on current data.
+Availability: the system should continue responding.
+Partition tolerance: the system should continue operating despite network partitions.
+
+Riak's design emphasizes availability and partition tolerance while allowing consistency to be configured according to application needs.

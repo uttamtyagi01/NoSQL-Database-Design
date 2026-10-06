@@ -1,0 +1,28 @@
+Q11. Explain Graph Databases and their data model.
+
+A graph database stores highly connected information using nodes and relationships.
+
+1. Nodes:
+Represent entities such as Person, Product, Student or Company.
+
+2. Relationships/Edges:
+Represent connections between nodes, such as FRIENDS_WITH, PURCHASED, WORKS_AT or ENROLLED_IN.
+
+3. Properties:
+Key-value attributes stored on nodes or relationships.
+
+4. Labels:
+Categories/types assigned to nodes, such as :Person, :Product or :Student.
+
+Example:
+(:Person {name:'Aman'})-[:FRIENDS_WITH]->(:Person {name:'Riya'})
+
+Graph databases are suitable for highly connected data because relationships are stored as first-class elements. Queries can traverse connections directly instead of repeatedly joining many relational tables.
+
+Common applications:
+- Social networks.
+- Recommendation systems.
+- Fraud detection.
+- Knowledge graphs.
+- Network analysis.
+- Dependency analysis.

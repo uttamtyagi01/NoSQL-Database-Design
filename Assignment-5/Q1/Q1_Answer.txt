@@ -1,0 +1,23 @@
+ASSIGNMENT – UNIT 5: NoSQL DATABASE
+Q1. Explain the architecture and working of Riak as a Key-Value NoSQL database.
+
+Riak is a distributed Key-Value NoSQL database. It stores information as key-value pairs inside buckets. A key uniquely identifies a value, while the value can contain text, JSON documents, lists, or other application data.
+
+Architecture and working:
+1. Client: Applications communicate with Riak through HTTP, REST-style APIs, or client libraries.
+2. Buckets: Buckets logically group related keys.
+3. Keys: Each stored object has a unique key within its bucket.
+4. Values: The actual application data is stored as the value associated with the key.
+5. Distributed nodes: Data is distributed across multiple nodes in the cluster.
+6. Replication: Copies of data can be maintained on multiple nodes for fault tolerance and availability.
+
+Basic operations are PUT, GET, UPDATE and DELETE.
+
+Example:
+Bucket: students
+Key: S101
+Value: {"name":"Aman","course":"BCA","age":20}
+
+A GET operation retrieves the value associated with the key. An update writes a new value for the same key, and DELETE removes it.
+
+Riak differs from relational databases because it does not primarily use fixed tables, rows, joins and a centralized relational schema. It emphasizes distributed storage, high availability, horizontal scalability, flexible values and fast key-based access.

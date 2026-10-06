@@ -1,0 +1,22 @@
+Q8. Explain relationships among data in Key-Value databases.
+
+A simple Key-Value model is mainly based on independent key-value objects. It does not naturally represent relationships such as:
+
+Student -> ENROLLED_IN -> Course
+Customer -> PURCHASED -> Product
+Person -> FRIENDS_WITH -> Person
+
+Relational databases represent relationships using foreign keys and joins. Graph databases represent relationships directly as edges. A simple Key-Value store does not normally provide this relationship model.
+
+Techniques for handling related data:
+1. Store related data inside one value when the data is small and usually accessed together.
+2. Store references/IDs to related objects.
+3. Maintain multiple denormalized copies for different access patterns.
+4. Use application-level logic to retrieve related records.
+5. Use indexes for selected relationship-like lookups.
+6. Use a graph database when relationships and traversals are the primary workload.
+
+Example:
+user:U01 -> {"name":"Aman","friends":["U02","U03"]}
+
+This works for simple relationships, but complex multi-step traversal becomes difficult compared with a graph database.

@@ -1,0 +1,26 @@
+Q13. Explain graph database query processing using Neo4j.
+
+Neo4j uses graph pattern matching and traversal. Instead of joining separate relational tables, the query describes the nodes and relationships that should be matched.
+
+Example:
+MATCH (p:Person {name:'Aman'})-[:FRIENDS_WITH]->(f:Person)
+RETURN f;
+
+This finds people directly connected to Aman through FRIENDS_WITH.
+
+Multi-hop example:
+MATCH (a:Person {name:'Aman'})-[:FRIENDS_WITH]->()-[:FRIENDS_WITH]->(x:Person)
+RETURN x;
+
+Pattern-based queries can also include properties and relationship directions.
+
+Why graph querying can be effective:
+In a highly connected dataset, a relational approach may require multiple joins between relationship tables. A graph database directly follows stored edges, making relationship traversal more natural.
+
+Examples:
+- Find friends of friends.
+- Find products purchased by customers with similar purchases.
+- Find shortest or relevant paths.
+- Find recommendation candidates through connected entities.
+
+The advantage is strongest when relationships and traversal are central to the application.

@@ -1,0 +1,33 @@
+Q10. Explain Operations by Sets in Key-Value databases.
+
+Set-based operations work with collections of unique elements. They are useful when an application needs to maintain membership rather than simple scalar values.
+
+Common operations:
+1. Add an element.
+2. Remove an element.
+3. Check membership.
+4. Find common elements/intersection.
+5. Combine sets/union.
+
+Examples:
+
+User groups:
+group:developers -> {"U01","U02","U03"}
+
+Tags:
+article:A101 -> {"NoSQL","Database","Riak"}
+
+Product categories:
+category:electronics -> {"P101","P102","P103"}
+
+Social relationships:
+user:U01:friends -> {"U02","U03"}
+
+If two users have:
+User A interests = {"Python","MongoDB","SQL"}
+User B interests = {"Python","MongoDB","PowerBI"}
+
+Their common interests are:
+{"Python","MongoDB"}
+
+Set operations are useful because membership and collection manipulation are common requirements in groups, tags, categories and social relationships. They can reduce application complexity for collection-based data when the underlying database supports suitable set operations.

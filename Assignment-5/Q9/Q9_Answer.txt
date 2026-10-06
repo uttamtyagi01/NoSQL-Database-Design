@@ -1,0 +1,21 @@
+Q9. Explain scaling in Riak.
+
+Riak is designed as a distributed Key-Value database. As data volume and user requests increase, the workload can be distributed across multiple nodes.
+
+Partitioning:
+Data is divided into partitions so that different parts of the key space can be handled by different nodes.
+
+Replication:
+Multiple copies of data can be stored on different nodes. Replication improves fault tolerance and allows requests to continue when some nodes fail.
+
+Distributed nodes:
+Adding nodes increases available storage and processing capacity. Requests and data can be distributed across the cluster.
+
+Scalability process:
+1. Incoming data is assigned to distributed partitions.
+2. Partitions are mapped to cluster nodes.
+3. Objects are replicated according to configuration.
+4. Additional nodes can take responsibility for more partitions.
+5. Failed nodes can be replaced/recovered while replicas help maintain availability.
+
+Thus partitioning provides distribution, replication provides fault tolerance, and multiple nodes provide horizontal scalability.

@@ -1,0 +1,25 @@
+Q12. Explain the major features of Neo4j.
+
+Neo4j is a graph NoSQL database based on nodes, relationships and properties.
+
+Consistency:
+Neo4j supports transactional consistency for graph updates. Operations can be grouped into transactions so related changes can be committed together.
+
+Transactions:
+Cypher queries such as CREATE, MATCH, SET and DELETE can be executed within transactions using Neo4j drivers.
+
+Availability:
+Neo4j deployments can use clustering/high-availability mechanisms depending on the edition and architecture. Availability is achieved through appropriate deployment and replication strategies.
+
+Query capabilities:
+Neo4j uses Cypher, a declarative graph query language designed for pattern matching and traversal.
+
+Example:
+MATCH (p:Person)-[:FRIENDS_WITH]->(f:Person)
+RETURN p,f;
+
+Scaling:
+Neo4j can scale through appropriate cluster architectures and data distribution capabilities, but graph workloads have different scaling characteristics from simple key-value workloads.
+
+Comparison with RDBMS:
+RDBMSs organize data into tables and commonly use joins for relationships. Neo4j stores relationships directly as graph edges, making multi-hop relationship queries more natural and expressive.

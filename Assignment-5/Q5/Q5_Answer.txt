@@ -1,0 +1,25 @@
+Q5. Explain the query features of Riak.
+
+Key-based querying:
+The simplest Riak access pattern is retrieving data using a known bucket and key.
+
+Example:
+Bucket: users
+Key: U101
+
+GET users/U101
+
+Querying by data:
+Sometimes an application knows a property rather than the exact key, such as:
+Find users whose city is Delhi.
+
+This is different from key lookup because the application needs a way to locate records based on their stored attributes.
+
+Riak can support more complex requirements through mechanisms such as:
+1. Secondary indexes: indexes can be associated with fields to locate objects based on indexed values.
+2. Search: Riak deployments can support search capabilities for suitable data.
+3. Application-level filtering: the application can retrieve data and filter JSON documents when the dataset is small or when no suitable index exists.
+
+Key-based access is normally faster and simpler because the key directly identifies the object. Data-based searching is more complex and requires indexing or additional application logic.
+
+Therefore, as requirements become more complex, the data model should be designed around expected queries and appropriate indexes.

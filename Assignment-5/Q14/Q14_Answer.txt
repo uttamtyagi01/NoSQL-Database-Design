@@ -1,0 +1,40 @@
+Q14. Model a social networking application using Neo4j.
+
+Main nodes:
+(:Person)
+(:Post)
+(:Group)
+
+Possible relationships:
+(:Person)-[:FRIENDS_WITH]->(:Person)
+(:Person)-[:FOLLOWS]->(:Person)
+(:Person)-[:CREATED]->(:Post)
+(:Person)-[:LIKES]->(:Post)
+(:Person)-[:MEMBER_OF]->(:Group)
+
+Example:
+(:Person {id:'U01',name:'Aman'})
+  -[:FRIENDS_WITH]->
+(:Person {id:'U02',name:'Riya'})
+
+Post:
+(:Person)-[:CREATED]->(:Post {id:'P101',text:'Hello'})
+
+Like:
+(:Person)-[:LIKES]->(:Post)
+
+Group:
+(:Person)-[:MEMBER_OF]->(:Group {id:'G01',name:'Data Analysts'})
+
+Recommendation queries can traverse relationships such as:
+A user's friends -> their liked posts -> related users/content.
+
+Advantages:
+1. Direct representation of relationships.
+2. Efficient multi-hop traversal.
+3. Natural representation of followers and friendships.
+4. Useful for recommendations.
+5. Easy pattern-based relationship queries.
+6. Flexible addition of new relationship types.
+
+Neo4j is therefore well suited to social applications where relationships are as important as the user data itself.

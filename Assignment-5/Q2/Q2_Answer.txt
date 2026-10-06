@@ -1,0 +1,35 @@
+Q2. Explain the Key-Value Data Model in detail.
+
+The Key-Value model stores data as a collection of pairs:
+
+Key -> Value
+
+The key is a unique identifier and the value contains the associated data.
+
+Example:
+"user:101" -> {"name":"Aman","city":"Delhi","age":21}
+
+Structure:
+- Key: unique identifier.
+- Value: actual data associated with the key.
+- Bucket/namespace: may group related keys depending on the database.
+
+Major features:
+1. Simple data model.
+2. Fast key-based lookup.
+3. Flexible value structure.
+4. Easy horizontal distribution.
+5. High scalability.
+6. Suitable for caching, sessions, profiles and shopping carts.
+
+Data access:
+Applications generally use the key to directly retrieve or modify a value. Typical operations are PUT/SET, GET, UPDATE and DELETE.
+
+Limitations:
+1. Limited relationship support.
+2. Complex queries can be difficult.
+3. Joins are not a primary feature.
+4. Querying by value may require indexes or application-level processing.
+5. Data modeling depends strongly on application access patterns.
+
+Key-Value databases are suitable for fast lookup applications because the database can locate data directly using a known key rather than performing complex joins or scanning unrelated records.

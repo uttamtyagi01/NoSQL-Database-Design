@@ -1,0 +1,28 @@
+Q4. Discuss transactions and multi-operation transactions in Riak.
+
+Traditional relational transactions commonly use ACID properties to group multiple changes into one atomic unit. This is difficult in distributed Key-Value databases because related data may be stored on different nodes.
+
+Example:
+A shopping-cart operation may require:
+1. Add product.
+2. Update quantity.
+3. Update total amount.
+
+If these are separate distributed operations, one operation could succeed while another fails because of a node failure or network problem.
+
+Why relational-style transactions are difficult:
+- Data may be distributed across nodes.
+- Network communication can fail.
+- Replicas may temporarily have different states.
+- Distributed locking can reduce performance and availability.
+- Coordinating multiple nodes increases complexity.
+
+Possible approaches:
+1. Store related information in one value whenever practical.
+2. Use application-level transaction/workflow logic.
+3. Use retries and idempotent operations.
+4. Use versioning or conditional updates where supported.
+5. Design operations so partial failure can be detected and corrected.
+6. Use compensation actions to undo a previously completed step.
+
+Therefore, Riak-style systems generally encourage data models that minimize the need for multi-key ACID transactions.

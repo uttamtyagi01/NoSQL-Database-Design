@@ -1,0 +1,40 @@
+Q7. Design a conceptual Key-Value structure for an e-commerce application.
+
+A Key-Value database can use separate buckets/namespaces for profiles, preferences and carts.
+
+1. User profile:
+Bucket: user_profiles
+Key: U101
+Value:
+{
+  "name":"Aman",
+  "email":"aman@example.com",
+  "city":"Delhi"
+}
+
+2. Preferences:
+Bucket: user_preferences
+Key: U101
+Value:
+{
+  "language":"English",
+  "theme":"dark",
+  "notifications":true
+}
+
+3. Shopping cart:
+Bucket: shopping_carts
+Key: U101
+Value:
+{
+  "items":[
+    {"product_id":"P101","quantity":2,"price":500},
+    {"product_id":"P102","quantity":1,"price":300}
+  ],
+  "total":1300
+}
+
+Access:
+The application uses the user ID to retrieve the profile, preferences and cart. Updating the cart can be done by reading the value, modifying the item collection and writing the updated value.
+
+This design provides fast user-specific lookup and keeps related information together. The application should also consider concurrency and consistency requirements when multiple requests update the same cart.
